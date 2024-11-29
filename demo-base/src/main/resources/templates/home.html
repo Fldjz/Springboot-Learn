@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<!-- 判断 username 是否非空 -->
+<div th:if="${username != null}">
+    欢迎, <span th:text="${username}">[用户名]</span>!
+</div>
+
+用户数： <span th:text="${onlineCount}">[用户数]</span>!
+<!-- 查看留言链接（不受登录状态影响） -->
+<a th:href="@{/messages}">查看留言</a>
+
+<!-- 如果 username 非空，显示其他选项 -->
+<!--<div th:if="${username != null}">-->
+<!--    <a th:href="@{/calculator.html}">使用计算器</a>-->
+<!--    <a th:href="@{/LogoutServlet}">登出</a>-->
+<!--</div>-->
+
+<!-- 如果 username 为空，显示登录链接 -->
+<div th:if="${username == null}">
+    <a th:href="@{/login}">登录</a>
+</div>
+
+</body>
+</html>
+
